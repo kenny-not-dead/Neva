@@ -1,0 +1,271 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    width: 375px;
+    display: flex;
+    justify-content: center;
+}
+
+div, p, input, button, form, span, a, ul, li {
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+.cardlist{
+    padding: 0;
+}
+
+
+.card{
+    border: 0.3px solid #828282;
+    border-radius: 16px;
+    width: 341px;
+    margin-bottom: 30px;
+}
+
+.image-img{
+    width: 100%;
+}
+
+
+.rectangle{
+    background-color: #FED74B;
+    position: absolute;
+    width: 99px;
+    height: 35px;   
+    margin-top: -190px;
+}
+
+.rectangle-p{
+    color: #3E3E3E;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    padding-left: 17px;
+    vertical-align: sub;
+}
+
+.rectangle-another{
+    background-color: #7553FF;
+    margin-top: -288px;
+    margin-left: -1px;
+    border-radius: 10px 0;
+}
+
+.rectangle-p-another{
+    color:#fff;
+}
+
+p {
+    display: inline;
+    font-size: 14px;
+}
+
+.info{
+    padding-left: 12px;
+}
+
+.time{
+    padding: 16px 0;
+}
+
+.time-icon{
+    width: 16px;
+    height: 16px;
+    margin-bottom: 3px;
+}
+
+.time-p {
+    font-weight : 400;
+    size: 12px;
+    color: #9E9E9E;
+    margin: 0;
+    padding-left: 9px;
+    vertical-align: super;
+
+}
+
+
+.info-1{
+    width: 300px;
+}
+.info-h{
+    font-weight: 600;
+    color: #404040;
+    font-family: open-sans;
+}
+
+.benefit-wrapper{
+    margin: 0;
+    padding: 0;
+}
+
+.benefit   {
+    display: flex;
+    justify-content: flex-start;
+}
+.benefit-p{
+    color: #4B4B4B;
+    padding-left: 20px;
+}
+
+.info-time{
+    background: #D9E8FF;
+    border-radius: 11px;
+    width: 63px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 6px;
+}
+.info-time:hover{
+    background: #6BA6FF;
+}
+
+.info-time .info-time-p:hover{
+    color: #fff;
+}
+
+.info-time-p{
+    display: block;
+    text-align: center;
+    padding: 3px 0;
+    margin: 0;
+}
+
+.time-list{
+    margin: 0;
+}
+.price-btn{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 35px;
+    padding-bottom: 19px;
+}
+
+.price{
+    display: table-caption;
+    width: 100px;
+    
+}
+
+.price-1{
+    font-weight: 400;
+    font-size: 30px;
+    color: #000;
+}
+
+.price-1-only{
+    padding-top: 5px;
+}
+
+.price-2{
+    font-size: 10px;
+    color: #000;
+    display: block;
+    margin: -5px 0;
+}
+
+.btn-wrapper{
+    padding-right: 19px;
+    padding-top: 5px;
+}
+
+.btn{
+    background: #FED74B;
+    border: 0.5px solid #CBA500;
+    border-radius: 20px;
+    color: #404040;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 12px 41px;
+}
+
+.id-card {
+    display: none;
+}
+
+
+@media screen and (min-width: 1440px) {
+.container{
+    width: 1440px;
+}
+
+.card{
+    width: 1070px;
+    display: flex;
+}
+
+.info{
+    width: 597px;
+}
+
+.image-img{
+    width: 473px;
+    height: 369px;
+}
+
+.time {
+    padding: 16px 0;
+    position: absolute;
+    margin-top: 65px;
+}
+
+.time-list{
+        float: right;
+        margin-top: -30px;
+        margin-right: 20px;
+        width: 317px;
+}
+
+.info-1{
+    padding-top: 16px;
+}
+
+.benefit-p{
+    margin: 5px
+}
+.benefit-wrapper{
+    margin-top: 35px;
+}
+
+.price-btn{
+    padding-top: 20px;
+}
+.price-2{
+    width: 120px;
+    font-size: 14px;
+}
+.info-h{
+    font-size: 26px;
+}
+
+.info-1{
+    width: 535px;
+}
+.btn{
+    margin-left: 20px;
+    height: 52px;
+    width: 187px;
+    font-size: 18px;
+}   
+p {
+    font-size: 18px;
+}
+.price-1 {
+    font-size: 36px;
+}
+
+.rectangle{
+    margin-top: -305px;
+}    
+
+.rectangle-another{
+    margin-top: -374px;
+}
+}
