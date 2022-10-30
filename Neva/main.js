@@ -45,17 +45,12 @@ route.addEventListener('change', () => {
 })
         
 
-time.addEventListener('change', () => {
-    time2 = document.getElementById('time2');
-    if (time2) {
-    let AtoBHours = time.value.split(':');
-    let AtoBMinuts = AtoBHours[1].split('(');
-    let AtoBHM = AtoBHours[0] + ':' + AtoBMinuts[0]
-
-    let AtoBHMtest = AtoBHM.split (':')
-
-    let Hours = Number (AtoBHMtest[0])
-    let Minuts = Number (AtoBHMtest[1])
+let testF = (timeChange) => {
+    x = timeChange.split(':');
+    y = x[1].split('(');
+    
+    let Hours = Number (x[0])
+    let Minuts = Number (y[0])
 
     if (Minuts < 10) {
         Minuts = Minuts + 50
@@ -65,10 +60,18 @@ time.addEventListener('change', () => {
                     Minuts = '0' + Minuts
                 }
         }
-    let finalTime = Hours + ':' + Minuts
+    
+    finalTime = Hours + ':' + Minuts
+}
 
+let finalTime 
+
+time.addEventListener('change', () => {
+    time2 = document.getElementById('time2');
+    if (time2) {
+    let timeChange = time.value;
+    testF(timeChange);
     let timeD = timetableBtoA.map(i => i.h + ':' + (i.m == 0 ? '0' + i.m : i.m)) 
-        
     let newTimeD = timeD.filter(n => n > finalTime)
     time2.innerHTML =  newTimeD.map(z => `<option value="${z}(из В в А)">${z}(из В в А)</option>`)
     }
@@ -80,7 +83,6 @@ btn.addEventListener('click', () => {
     if (num.value < 1) {
         alert("Нельзя выбрать меньше 1 билета")
         num.value = 1
-
     } else { 
         if (route.value === 'из A в B и обратно в А') {
         finalPrice = (num.value * 1200)
@@ -90,59 +92,23 @@ btn.addEventListener('click', () => {
 
         let startTime = time.value.split('(');
 
-
-        let finalTime = () => {
+        let finalTimes = () => {
+        time2 = document.getElementById('time2');
         if (route.value === 'из A в B и обратно в А') {
-            let AtoBHours = time2.value.split(':');
-            timetime()
-            let AtoBMinuts = AtoBHours[1].split('(');
-            let AtoBHM = AtoBHours[0] + ':' + AtoBMinuts[0]
-        
-            let AtoBHMtest = AtoBHM.split (':')
-        
-            let Hours = Number (AtoBHMtest[0])
-            let Minuts = Number (AtoBHMtest[1])
-        
-            if (Minuts < 10) {
-                Minuts = Minuts + 50
-                } else { Hours = Hours + 1;
-                    Minuts = 50 - (60 - Minuts)
-                        if (Minuts < 10) {
-                            Minuts = '0' + Minuts
-                        }
-                }
-                finalTime = Hours + ':' + Minuts
+            timeChange = time2.value;
+            testF(timeChange);
         } else {
-            let AtoBHours = time.value.split(':');
-            let AtoBMinuts = AtoBHours[1].split('(');
-            let AtoBHM = AtoBHours[0] + ':' + AtoBMinuts[0]
-        
-            let AtoBHMtest = AtoBHM.split (':')
-        
-            let Hours = Number (AtoBHMtest[0])
-            let Minuts = Number (AtoBHMtest[1])
-        
-            if (Minuts < 10) {
-                Minuts = Minuts + 50
-                } else { Hours = Hours + 1;
-                    Minuts = 50 - (60 - Minuts)
-                        if (Minuts < 10) {
-                            Minuts = '0' + Minuts
-                        }
-                }
-                finalTime = Hours + ':' + Minuts
+        time = document.getElementById('time');
+            timeChange = time.value;
+            testF(timeChange);
         }}
 
-        finalTime()
+        finalTimes()
 
-
-
-            result.innerHTML =
-            `<p> Вы выбрали ${num.value} ${num.value == 1? "билет" : (num.value > 4) ? "билетов" : "билета"} по маршруту ${route.value} стоимостью ${finalPrice}р.
-            Это путешествие займет у Вас ${route.value === 'из A в B и обратно в А' ? "1 час 40 минут" : "50 минут"}.
-            Теплоход отправляется в ${startTime[0]}, а прибудет в ${finalTime}</p>`
+        result.innerHTML =
+        `<p> Вы выбрали ${num.value} ${num.value == 1? "билет" : (num.value > 4) ? "билетов" : "билета"} по маршруту ${route.value} стоимостью ${finalPrice}р.
+        Это путешествие займет у Вас ${route.value === 'из A в B и обратно в А' ? "1 час 40 минут" : "50 минут"}.
+        Теплоход отправляется в ${startTime[0]}, а прибудет в ${finalTime}</p>`
     }
-
-   
 })
 
